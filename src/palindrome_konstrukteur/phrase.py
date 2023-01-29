@@ -9,12 +9,16 @@ class Phrase:
 
     def ispalindrome(self):
         """Return True for a palindrome, False otherwise."""
-        return self.processed_content() == reverse(self.processed_content())
+        pc = self.processed_content()
+        if pc:
+            return pc == reverse(pc)
+        else:
+            return False
 
     def processed_content(self):
         """Return content for palindrome testing."""
         return self.letters_and_digits().lower()
-    
+
     def letters_and_digits(self):
         """Return the letters and digits in the content."""
         return "".join(re.findall(r"[a-zA-Z\d]", self.content))
